@@ -50,6 +50,7 @@
     color: var(--muted-foreground);
     font-size: 1rem;
   }
+
   .chosen-val {
     color: var(--primary);
     font-weight: 600;
@@ -61,6 +62,7 @@
     height: 16rem;
     padding: 1.5rem 0;
   }
+
   @media (min-width: 768px) {
     .circle {
       width: 20rem;
@@ -76,10 +78,12 @@
   .bg {
     stroke: var(--muted);
   }
+
   .progress {
     stroke: var(--primary);
     transition: stroke-dashoffset 0.2s ease, stroke 0.2s ease;
   }
+
   .progress.finished {
     stroke: var(--destructive);
   }
@@ -92,6 +96,7 @@
     align-items: center;
     justify-content: center;
   }
+
   .time {
     font-size: 3.25rem;
     font-weight: 300;
@@ -100,22 +105,27 @@
     font-variant-numeric: tabular-nums;
     line-height: 1;
   }
+
   .time.finished {
     color: var(--destructive);
   }
+
   @media (min-width: 768px) {
     .time {
       font-size: 4.75rem;
     }
   }
+
   .msg {
     margin-top: 0.75rem;
     font-size: 1.125rem;
     font-weight: 500;
   }
+
   .msg.paused {
     color: var(--accent);
   }
+
   .msg.finished {
     color: var(--destructive);
   }
@@ -129,10 +139,12 @@
     justify-content: center;
     gap: 1.25rem;
   }
+
   .hidden-label {
     font-size: 1.125rem;
     color: var(--muted-foreground);
   }
+
   .bar-track {
     width: 8rem;
     height: 0.25rem;
@@ -140,6 +152,7 @@
     border-radius: 9999px;
     overflow: hidden;
   }
+
   .bar-fill {
     height: 100%;
     background: var(--primary);
@@ -173,12 +186,15 @@
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   }
+
   .btn:hover:not(:disabled) {
     transform: scale(1.05);
   }
+
   .btn:active:not(:disabled) {
     transform: scale(0.95);
   }
+
   .btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -189,6 +205,7 @@
     color: var(--primary-foreground);
     box-shadow: 0 10px 15px -3px hsla(185, 55%, 35%, 0.25);
   }
+
   .primary:hover:not(:disabled) {
     box-shadow: 0 20px 25px -5px hsla(185, 55%, 35%, 0.35);
   }
@@ -198,6 +215,7 @@
     color: var(--accent-foreground);
     box-shadow: 0 10px 15px -3px hsla(25, 75%, 45%, 0.25);
   }
+
   .accent:hover:not(:disabled) {
     box-shadow: 0 20px 25px -5px hsla(25, 75%, 45%, 0.35);
   }
@@ -206,6 +224,7 @@
     background: var(--secondary);
     color: var(--foreground);
   }
+
   .secondary:hover:not(:disabled) {
     background: #e6e2da;
   }

@@ -204,18 +204,22 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
+
   .badge-idle {
     background: var(--muted);
     color: var(--muted-foreground);
   }
+
   .badge-running {
     background: hsla(185, 55%, 35%, 0.2);
     color: var(--primary);
   }
+
   .badge-paused {
     background: hsla(25, 75%, 45%, 0.2);
     color: var(--accent);
   }
+
   .badge-finished {
     background: hsla(5, 70%, 50%, 0.2);
     color: var(--destructive);

@@ -39,6 +39,7 @@
     gap: 1.5rem;
     grid-template-columns: 1fr;
   }
+
   @media (min-width: 768px) {
     .grid {
       grid-template-columns: 1fr 1fr;
@@ -71,14 +72,17 @@
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     width: 100%;
   }
+
   .input:focus {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 0 3px hsla(185, 55%, 35%, 0.2);
   }
+
   .input.error {
     border-color: var(--destructive);
   }
+
   .input.error:focus {
     box-shadow: 0 0 0 3px hsla(5, 70%, 50%, 0.2);
   }
@@ -92,6 +96,7 @@
     display: flex;
     gap: 0.5rem;
   }
+
   .select {
     flex: 1;
   }
@@ -112,12 +117,15 @@
     cursor: pointer;
     transition: background 0.2s ease, transform 0.2s ease;
   }
+
   .test:hover:not(:disabled) {
     background: #e6e2da;
   }
+
   .test:active:not(:disabled) {
     transform: scale(0.97);
   }
+
   .test:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -146,9 +154,11 @@
     padding: 0;
     transition: background-color 0.3s ease;
   }
+
   .toggle.on {
     background: var(--primary);
   }
+
   .thumb {
     position: absolute;
     top: 0.25rem;
@@ -160,6 +170,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
   }
+
   .thumb.on {
     transform: translateX(1.25rem);
   }
