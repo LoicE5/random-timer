@@ -1,0 +1,10 @@
+services:
+  random-timer:
+    image: loice5/random-timer:1.0.0
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: random-timer
+    ports:
+      - 3000:3000
+    restart: no
