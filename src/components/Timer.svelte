@@ -87,18 +87,28 @@
     padding: 1.5rem 0;
   }
 
-  .bar-track {
+  .bar {
+    appearance: none;
+    -webkit-appearance: none;
     width: 100%;
     height: 0.5rem;
-    background: var(--muted);
     margin-top: 2rem;
+    border: none;
+    background: var(--muted);
     overflow: hidden;
   }
 
-  .bar-fill {
-    height: 100%;
+  .bar::-webkit-progress-bar {
+    background: var(--muted);
+  }
+
+  .bar::-webkit-progress-value {
     background: var(--foreground);
     transition: width 0.2s linear;
+  }
+
+  .bar::-moz-progress-bar {
+    background: var(--foreground);
   }
 
   .instruction {
@@ -166,22 +176,20 @@
   {/if}
 
   {#if showCountdown}
-    <div class="time">{timeText}</div>
+    <output class="time">{timeText}</output>
     {#if message}
-      <div class="msg">{message}</div>
+      <p class="msg">{message}</p>
     {/if}
   {:else}
-    <div class="hidden-label">
+    <p class="hidden-label">
       {#if status === 'running'}Timer running…
       {:else if status === 'paused'}Paused
       {:else if status === 'finished'}Time's up!
       {:else}Timer hidden{/if}
-    </div>
+    </p>
   {/if}
 
-  <div class="bar-track">
-    <div class="bar-fill" style="width: {Math.min(100, progress * 100)}%"></div>
-  </div>
+  <progress class="bar" value={progress} max="1" aria-label="Timer progress"></progress>
 
   {#if status === 'idle'}
     <p class="instruction">Set your random timer and press Start</p>
