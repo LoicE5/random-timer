@@ -1,22 +1,13 @@
 :root {
-  --background: hsl(40, 30%, 96%);
-  --background-end: hsl(40, 25%, 91%);
-  --foreground: hsl(210, 20%, 18%);
-  --muted: hsl(40, 15%, 84%);
-  --muted-foreground: hsl(210, 12%, 45%);
-  --primary: hsl(185, 55%, 35%);
-  --primary-foreground: hsl(40, 40%, 98%);
-  --accent: hsl(25, 75%, 45%);
-  --accent-foreground: hsl(40, 40%, 98%);
-  --secondary: hsl(40, 20%, 92%);
-  --destructive: hsl(5, 70%, 50%);
-  --border: hsl(40, 15%, 82%);
-  --input: hsl(40, 30%, 96%);
-  --glass-bg: hsla(40, 35%, 98%, 0.85);
-  --glass-border: hsla(210, 20%, 25%, 0.08);
-  --gradient-start: hsl(25, 70%, 88%);
-  --gradient-mid: hsl(45, 80%, 90%);
-  --gradient-end: hsl(185, 60%, 88%);
+  --background: hsl(0, 0%, 96%);
+  --foreground: hsl(0, 0%, 8%);
+  --muted: hsl(0, 0%, 88%);
+  --muted-foreground: hsl(0, 0%, 40%);
+  --primary: hsl(0, 0%, 8%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 100%);
+  --border: hsl(0, 0%, 80%);
+  --input: hsl(0, 0%, 100%);
 }
 
 * {
@@ -28,29 +19,12 @@
 html,
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--background) 0%, var(--background-end) 100%);
-  background-color: var(--background);
+  background: var(--background);
 }
 
 body {
-  font-family: 'Sora', system-ui, sans-serif;
+  font-family: 'Archivo', system-ui, sans-serif;
   color: var(--foreground);
-  background: linear-gradient(135deg, var(--background) 0%, var(--background-end) 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background 1s ease;
-}
-
-body.running {
-  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
-  background-size: 400% 400%;
-  animation: gradient-shift 15s ease infinite;
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-
-  50% { background-position: 100% 50%; }
-
-  100% { background-position: 0% 50%; }
 }

@@ -14,13 +14,9 @@
     onReset,
   }: TimerProps = $props();
 
-  const RADIUS = 120;
-  const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
-
   let progress = $derived(
     totalSeconds > 0 ? (totalSeconds - remainingSeconds) / totalSeconds : 0,
   );
-  let dashOffset = $derived(CIRCUMFERENCE - progress * CIRCUMFERENCE);
 
   let timeText = $derived.by(() => {
     if (status === 'idle') return '--:--';
@@ -41,240 +37,150 @@
   .wrap {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
   }
 
   .chosen {
-    text-align: center;
-    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.8125rem;
+    font-weight: 600;
     color: var(--muted-foreground);
-    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 
   .chosen-val {
-    color: var(--primary);
-    font-weight: 600;
-  }
-
-  .circle {
-    position: relative;
-    width: 16rem;
-    height: 16rem;
-    padding: 1.5rem 0;
-  }
-
-  @media (min-width: 768px) {
-    .circle {
-      width: 20rem;
-      height: 20rem;
-    }
-  }
-
-  .ring {
-    width: 100%;
-    height: 100%;
-    transform: rotate(-90deg);
-  }
-  .bg {
-    stroke: var(--muted);
-  }
-
-  .progress {
-    stroke: var(--primary);
-    transition: stroke-dashoffset 0.2s ease, stroke 0.2s ease;
-  }
-
-  .progress.finished {
-    stroke: var(--destructive);
-  }
-
-  .center {
-    position: absolute;
-    inset: 15%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    color: var(--foreground);
+    font-weight: 700;
   }
 
   .time {
-    font-size: 3.25rem;
-    font-weight: 300;
-    letter-spacing: -0.05em;
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
     color: var(--foreground);
     font-variant-numeric: tabular-nums;
-    line-height: 1;
-  }
-
-  .time.finished {
-    color: var(--destructive);
+    line-height: 0.95;
   }
 
   @media (min-width: 768px) {
     .time {
-      font-size: 4.75rem;
+      font-size: 8rem;
     }
   }
 
   .msg {
     margin-top: 0.75rem;
-    font-size: 1.125rem;
-    font-weight: 500;
-  }
-
-  .msg.paused {
-    color: var(--accent);
-  }
-
-  .msg.finished {
-    color: var(--destructive);
-  }
-
-  .hidden-mode {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--foreground);
   }
 
   .hidden-label {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: var(--muted-foreground);
+    padding: 1.5rem 0;
   }
 
   .bar-track {
-    width: 8rem;
-    height: 0.25rem;
+    width: 100%;
+    height: 0.5rem;
     background: var(--muted);
-    border-radius: 9999px;
+    margin-top: 2rem;
     overflow: hidden;
   }
 
   .bar-fill {
     height: 100%;
-    background: var(--primary);
-    transition: width 0.2s ease;
+    background: var(--foreground);
+    transition: width 0.2s linear;
   }
 
   .instruction {
-    margin-top: 1rem;
+    margin-top: 1.25rem;
     color: var(--muted-foreground);
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
   .controls {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 2rem;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
   }
 
   .btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.75rem;
+    padding: 0.75rem 1.75rem;
+    border: 2px solid var(--foreground);
+    border-radius: 0;
     font-family: inherit;
-    font-weight: 500;
-    font-size: 1rem;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  }
-
-  .btn:hover:not(:disabled) {
-    transform: scale(1.05);
-  }
-
-  .btn:active:not(:disabled) {
-    transform: scale(0.95);
+    transition: background 0.15s ease, color 0.15s ease;
   }
 
   .btn:disabled {
-    opacity: 0.5;
+    opacity: 0.35;
     cursor: not-allowed;
   }
 
   .primary {
-    background: var(--primary);
+    background: var(--foreground);
     color: var(--primary-foreground);
-    box-shadow: 0 10px 15px -3px hsla(185, 55%, 35%, 0.25);
   }
 
   .primary:hover:not(:disabled) {
-    box-shadow: 0 20px 25px -5px hsla(185, 55%, 35%, 0.35);
-  }
-
-  .accent {
-    background: var(--accent);
-    color: var(--accent-foreground);
-    box-shadow: 0 10px 15px -3px hsla(25, 75%, 45%, 0.25);
-  }
-
-  .accent:hover:not(:disabled) {
-    box-shadow: 0 20px 25px -5px hsla(25, 75%, 45%, 0.35);
-  }
-
-  .secondary {
-    background: var(--secondary);
+    background: var(--background);
     color: var(--foreground);
   }
 
+  .accent,
+  .secondary {
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  .accent:hover:not(:disabled),
   .secondary:hover:not(:disabled) {
-    background: #e6e2da;
+    background: var(--foreground);
+    color: var(--primary-foreground);
   }
 </style>
 
 <div class="wrap">
   {#if status !== 'idle' && showCountdown}
     <p class="chosen">
-      Random timer duration: <span class="chosen-val">{chosenDuration} {chosenDuration === 1 ? 'minute' : 'minutes'}</span>
+      Random duration — <span class="chosen-val">{chosenDuration} {chosenDuration === 1 ? 'minute' : 'minutes'}</span>
     </p>
   {/if}
 
-  <div class="circle">
-    {#if showCountdown}
-      <svg viewBox="0 0 260 260" class="ring">
-        <circle cx="130" cy="130" r={RADIUS} class="bg" stroke-width="8" fill="none" />
-        <circle
-          cx="130"
-          cy="130"
-          r={RADIUS}
-          class="progress"
-          class:finished={status === 'finished'}
-          stroke-width="8"
-          stroke-linecap="round"
-          fill="none"
-          stroke-dasharray={CIRCUMFERENCE}
-          stroke-dashoffset={dashOffset}
-        />
-      </svg>
-      <div class="center">
-        <div class="time" class:finished={status === 'finished'}>{timeText}</div>
-        {#if message}
-          <div class="msg" class:paused={status === 'paused'} class:finished={status === 'finished'}>
-            {message}
-          </div>
-        {/if}
-      </div>
-    {:else}
-      <div class="hidden-mode">
-        <div class="hidden-label">
-          {#if status === 'running'}Timer running…
-          {:else if status === 'paused'}Paused
-          {:else if status === 'finished'}Time's up!
-          {:else}Timer hidden{/if}
-        </div>
-        <div class="bar-track">
-          <div class="bar-fill" style="width: {Math.min(100, progress * 100)}%"></div>
-        </div>
-      </div>
+  {#if showCountdown}
+    <div class="time">{timeText}</div>
+    {#if message}
+      <div class="msg">{message}</div>
     {/if}
+  {:else}
+    <div class="hidden-label">
+      {#if status === 'running'}Timer running…
+      {:else if status === 'paused'}Paused
+      {:else if status === 'finished'}Time's up!
+      {:else}Timer hidden{/if}
+    </div>
+  {/if}
+
+  <div class="bar-track">
+    <div class="bar-fill" style="width: {Math.min(100, progress * 100)}%"></div>
   </div>
 
   {#if status === 'idle'}

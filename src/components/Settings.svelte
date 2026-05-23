@@ -18,19 +18,19 @@
 
 <style>
   .panel {
-    background: var(--glass-bg);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid var(--glass-border);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    margin-top: 2rem;
-    box-shadow: 0 24px 40px -24px rgba(20, 30, 40, 0.25);
+    background: var(--secondary);
+    border: none;
+    border-top: 2px solid var(--foreground);
+    border-radius: 0;
+    padding: 1.5rem 0 0;
+    margin-top: 3.5rem;
   }
 
   .title {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
     margin-bottom: 1.5rem;
   }
 
@@ -53,43 +53,41 @@
   }
 
   .label {
-    font-size: 0.8125rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 700;
     color: var(--muted-foreground);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
   }
 
   .input {
     background: var(--input);
     border: 1px solid var(--border);
-    border-radius: 0.5rem;
+    border-radius: 0;
     padding: 0.625rem 1rem;
     height: 2.75rem;
     color: var(--foreground);
     font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.15s ease;
     width: 100%;
   }
 
   .input:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px hsla(185, 55%, 35%, 0.2);
+    border-color: var(--foreground);
+    box-shadow: inset 0 0 0 1px var(--foreground);
   }
 
   .input.error {
-    border-color: var(--destructive);
-  }
-
-  .input.error:focus {
-    box-shadow: 0 0 0 3px hsla(5, 70%, 50%, 0.2);
+    border-width: 2px;
+    border-color: var(--foreground);
   }
 
   .err {
-    color: var(--destructive);
-    font-size: 0.85rem;
+    color: var(--foreground);
+    font-size: 0.8125rem;
+    font-weight: 700;
   }
 
   .row {
@@ -105,29 +103,28 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    padding: 0 0.9rem;
+    padding: 0 1rem;
     height: 2.75rem;
-    border: none;
-    border-radius: 0.5rem;
-    background: var(--secondary);
+    border: 1px solid var(--foreground);
+    border-radius: 0;
+    background: var(--background);
     color: var(--foreground);
     font-family: inherit;
-    font-weight: 500;
-    font-size: 0.95rem;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: background 0.15s ease, color 0.15s ease;
   }
 
   .test:hover:not(:disabled) {
-    background: #e6e2da;
-  }
-
-  .test:active:not(:disabled) {
-    transform: scale(0.97);
+    background: var(--foreground);
+    color: var(--primary-foreground);
   }
 
   .test:disabled {
-    opacity: 0.5;
+    opacity: 0.35;
     cursor: not-allowed;
   }
 
@@ -137,7 +134,7 @@
     justify-content: space-between;
     background: var(--input);
     border: 1px solid var(--border);
-    border-radius: 0.5rem;
+    border-radius: 0;
     padding: 0.625rem 1rem;
     height: 2.75rem;
     font-size: 1rem;
@@ -147,32 +144,32 @@
     position: relative;
     width: 2.75rem;
     height: 1.5rem;
-    border-radius: 9999px;
-    border: none;
-    background: var(--muted);
+    border-radius: 0;
+    border: 1px solid var(--foreground);
+    background: var(--background);
     cursor: pointer;
     padding: 0;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
   }
 
   .toggle.on {
-    background: var(--primary);
+    background: var(--foreground);
   }
 
   .thumb {
     position: absolute;
-    top: 0.25rem;
-    left: 0.25rem;
-    width: 1rem;
-    height: 1rem;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    top: 0.1875rem;
+    left: 0.1875rem;
+    width: 0.875rem;
+    height: 0.875rem;
+    background: var(--foreground);
+    border-radius: 0;
+    transition: transform 0.2s ease, background 0.2s ease;
   }
 
   .thumb.on {
     transform: translateX(1.25rem);
+    background: var(--primary-foreground);
   }
 </style>
 

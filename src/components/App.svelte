@@ -70,15 +70,6 @@
 
   let canStart = $derived(!errors.min && !errors.max);
 
-  let statusLabel = $derived.by(() => {
-    switch (status) {
-      case 'running': return 'Running';
-      case 'paused': return 'Paused';
-      case 'finished': return 'Finished';
-      case 'idle': return 'Ready';
-    }
-  });
-
   function clearTick(): void {
     if (tickIntervalId !== null) {
       clearInterval(tickIntervalId);
@@ -166,86 +157,43 @@
   .app {
     max-width: 56rem;
     margin: 0 auto;
-    padding: 1.5rem 1rem 3rem;
+    padding: 2.5rem 1.5rem 4rem;
   }
 
   .header {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
-    margin-bottom: 1rem;
-  }
-
-  .left {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .icon-bubble {
-    padding: 0.5rem;
-    background: hsla(185, 55%, 35%, 0.18);
-    color: var(--primary);
-    border-radius: 0.75rem;
-    display: inline-flex;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--foreground);
   }
 
   .title {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
     color: var(--foreground);
   }
 
-  .badge {
-    padding: 0.375rem 1rem;
-    border-radius: 9999px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .badge-idle {
-    background: var(--muted);
-    color: var(--muted-foreground);
-  }
-
-  .badge-running {
-    background: hsla(185, 55%, 35%, 0.2);
-    color: var(--primary);
-  }
-
-  .badge-paused {
-    background: hsla(25, 75%, 45%, 0.2);
-    color: var(--accent);
-  }
-
-  .badge-finished {
-    background: hsla(5, 70%, 50%, 0.2);
-    color: var(--destructive);
+  @media (min-width: 768px) {
+    .title {
+      font-size: 1.875rem;
+    }
   }
 
   .main {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding-top: 2rem;
+    padding-top: 3.5rem;
   }
 </style>
 
 <div class="app">
   <header class="header">
-    <div class="left">
-      <div class="icon-bubble">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="13" r="8" />
-          <path d="M12 9v4l2 2" />
-          <path d="M9 2h6" />
-        </svg>
-      </div>
-      <h1 class="title">Random Timer Generator</h1>
-    </div>
-    <span class="badge badge-{status}">{statusLabel}</span>
+    <h1 class="title">Random Timer</h1>
   </header>
 
   <main class="main">
