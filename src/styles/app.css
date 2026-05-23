@@ -1,5 +1,6 @@
 :root {
   --background: hsl(40, 30%, 96%);
+  --background-end: hsl(40, 25%, 91%);
   --foreground: hsl(210, 20%, 18%);
   --muted: hsl(40, 15%, 84%);
   --muted-foreground: hsl(210, 12%, 45%);
@@ -27,12 +28,14 @@
 html,
 body {
   min-height: 100vh;
+  background: linear-gradient(135deg, var(--background) 0%, var(--background-end) 100%);
+  background-color: var(--background);
 }
 
 body {
   font-family: 'Sora', system-ui, sans-serif;
   color: var(--foreground);
-  background: linear-gradient(135deg, var(--background) 0%, #f1ece3 100%);
+  background: linear-gradient(135deg, var(--background) 0%, var(--background-end) 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background 1s ease;
