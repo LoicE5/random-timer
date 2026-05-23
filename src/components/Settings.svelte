@@ -18,7 +18,6 @@
 
 <style>
   .panel {
-    background: var(--secondary);
     border: none;
     border-top: 2px solid var(--foreground);
     border-radius: 0;
