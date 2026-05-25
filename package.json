@@ -1,12 +1,12 @@
 {
   "name": "random-timer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "docker-build": "docker build -f docker/Dockerfile -t loice5/random-timer:1.0.0 -t loice5/random-timer:latest .",
+    "docker-build": "docker build -f docker/Dockerfile -t loice5/random-timer:1.0.1 -t loice5/random-timer:latest .",
     "compose": "docker compose -f docker/docker-compose.yaml up"
   },
   "dependencies": {
