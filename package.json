@@ -9,14 +9,14 @@
     "docker-build": "docker build -f docker/Dockerfile -t loice5/random-timer:1.0.0 -t loice5/random-timer:latest .",
     "compose": "docker compose -f docker/docker-compose.yaml up"
   },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "svelte": "^5.16.0",
     "svelte-check": "^4.1.4",
     "typescript": "^6.0.3",
     "vite": "^8.0.13"
-  },
-  "dependencies": {
-    "@vercel/analytics": "^2.0.1"
   }
 }
